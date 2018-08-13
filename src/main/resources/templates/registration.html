@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Registration Panel</title>
+</head>
+<body>
+<div style="text-align: center">
+    <h2>Customer Registration</h2>
+    <h3 th:text="${info}"></h3>
+    <h3 th:text="${infoTwo}"></h3>
+    <form action="/register" method="post" th:object="${registrationForm}">
+        <input type="text" th:field="*{name}" placeholder="Name">
+        <br/>
+        <input type="text" th:field="*{surname}" placeholder="Surname">
+        <br/>
+        <input type="text" th:field="*{email}" placeholder="E-mail">
+        <br/>
+        <input type="text" th:field="*{login}" placeholder="Login">
+        <br/>
+        <input type="password" th:field="*{password}" placeholder="Password">
+        <br/>
+        <br/>
+        <input type="submit" value="Register">
+    </form>
+</div>
+</body>
+</html>

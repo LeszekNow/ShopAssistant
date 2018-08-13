@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <div style="text-align: center">
+    <h2 th:text="'User: ' + ${customer.getName()} + ' ' + ${customer.getSurname()}"></h2>
+    <h4 th:text="'Card number: ' + ${card.getNumber()}"></h4>
+    <h4 th:text="'Points collected: ' + ${card.getPoints()}"></h4>
+    </div>
+</head>
+<body>
+
+<section style="text-align: center">
+    <strong> Your latest receipts:</strong>
+    <div th:each="receipt : ${receipts}">
+        <a th:href="${'/receipt/' + receipt.getId() + '/' + receipt.getShopId()}">
+            <h4 th:text="'Receipt barcode: ' + ${receipt.getReceiptBarcode()} + ' from: ' + ${receipt.getDate()}"></h4>
+        </a>
+    </div>
+</section>
+
+<section style="text-align: center">
+
+    <div>
+        <form action="/homepage/search/receipt" method="post">
+            <input type="text" th:name="search" placeholder="Shop name">
+            <input type="submit" value="Search">
+        </form>
+</div>
+
+</section>
+
+</body>
+</html>

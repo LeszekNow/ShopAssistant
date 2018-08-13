@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Receipt</title>
+</head>
+<body style="text-align: center">
+
+<strong th:text="${shop}"></strong>
+<div th:each="product : ${products}">
+    <h4 th:text="'-) Product code: ' + ${product.get().getBarcode()} + ' name: ' + ${product.get().getName()} + ' (' + ${product.get().getDescription()} + ') price: ' + ${product.get().getPrice()}"></h4>
+</div>
+<br/>
+<br/>
+
+<a href="/homepage">Back</a>
+
+</body>
+</html>

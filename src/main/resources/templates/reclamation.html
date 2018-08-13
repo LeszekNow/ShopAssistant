@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Reclamation Panel</title>
+</head>
+<body>
+
+<div style="text-align: center">
+    <h2>Reclamation</h2>
+    <br/>
+    <form action="/shop/reclamation" method="post" th:object="${reclamationForm}">
+        <input type="text" th:field="*{cardNumber}" placeholder="Card number">
+        <br/>
+        <br/>
+        <input type="submit" value="Accept">
+    </form>
+</div>
+<br/>
+
+<section style="text-align: center">
+    <strong> Customer's receipts from this shop:</strong>
+    <div th:each="receipt : ${receipts}">
+        <a th:href="${'/receipt/' + receipt.getId() + '/' + receipt.getShopId()}">
+            <h4 th:text="'Receipt barcode: ' + ${receipt.getReceiptBarcode()} + ' from: ' + ${receipt.getDate()}"></h4>
+        </a>
+    </div>
+</section>
+
+</body>
+</html>

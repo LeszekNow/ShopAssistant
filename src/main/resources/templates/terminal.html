@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop and Terminal</title>
+</head>
+<body>
+<!--
+
+Work to do. Now it's copy of registration template
+
+-->
+<div style="text-align: center">
+    <h2>Shop - Terminal</h2>
+    <h3 th:text="${info}"></h3>
+   <br/>
+    <form action="/shop/terminal" method="post" th:object="${receiptForm}">
+        <input type="text" th:field="*{cardNumber}" placeholder="Card number">
+        <br/>
+        <input type="text" th:field="*{productBarcode}" placeholder="Product barcode, ...">
+        <br/>
+        <br/>
+        <input type="submit" value="Accept">
+    </form>
+</div>
+<br/>
+<br/>
+
+<div style="text-align: center">
+<a href="/shop/reclamation">Reclamation</a>
+
+</div>
+
+</body>
+</html>
